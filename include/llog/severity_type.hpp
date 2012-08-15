@@ -11,7 +11,8 @@ class Severity
 {
 
 public:
-  const static uint32_t Fatal = 0;
+  const static uint32_t Test = 0;
+  const static uint32_t Fatal = 5;
   const static uint32_t Error = 10;
   const static uint32_t Warning = 20;
   const static uint32_t Info = 30;
@@ -23,6 +24,8 @@ public:
   {
     switch(severity)
     {
+    case Test:
+      return "TST";
     case Fatal:
       return "FTL";
     case Error:
