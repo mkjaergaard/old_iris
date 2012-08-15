@@ -101,4 +101,14 @@ static void log(const SeverityType severity,
   }
 }
 
+template<int S, typename T1, typename T2>
+static void log(const char* event,
+		const char* name1, const Argument<T1>& argument1,
+		const char* name2, const Argument<T2>& argument2)
+{
+  log(S, event,
+      name1, argument1,
+      name2, argument2);
+}
+
 }
