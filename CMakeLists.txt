@@ -17,8 +17,3 @@ add_library(llog
   src/logger.cpp
 )
 
-add_executable(llog_test
-  src/test.cpp
-)
-
-target_link_libraries(llog_test -lstdc++)
