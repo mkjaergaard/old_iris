@@ -59,15 +59,15 @@ public:
 
 #include <stdio.h>
 
-static void log(const SeverityType severity,
-		const char* event)
+template<int Severity>
+static void llog(const char* event)
 {
-  if(Logger::getInstance().isSeverityLogged(severity))
+  if(Logger::getInstance().isSeverityLogged(Severity))
   {
     char buffer[512];
     sprintf(buffer,
 	    "[%s %s] %s",
-	    llog::Severity::name(severity),
+	    llog::Severity::name(Severity),
 	    bt::to_simple_string(bt::microsec_clock::universal_time().time_of_day()).c_str(),
 	    event);
 
@@ -75,40 +75,28 @@ static void log(const SeverityType severity,
   }
 }
 
-template<typename T1>
-static void log(const SeverityType severity,
-		const char* event,
+template<int Severity, typename T1>
+static void llog(const char* event,
 		const char* name1, const Argument<T1>& argument1)
 {
-  if(Logger::getInstance().isSeverityLogged(severity))
+  if(Logger::getInstance().isSeverityLogged(Severity))
   {
-    log(severity, event);
+    llog<Severity>(event);
     std::cout << " - " << name1 << ": " << llog::to_string(argument1) << std::endl;
   }
 }
 
-template<typename T1, typename T2>
-static void log(const SeverityType severity,
-		const char* event,
+template<int Severity, typename T1, typename T2>
+static void llog(const char* event,
 		const char* name1, const Argument<T1>& argument1,
 		const char* name2, const Argument<T2>& argument2)
 {
-  if(Logger::getInstance().isSeverityLogged(severity))
+  if(Logger::getInstance().isSeverityLogged(Severity))
   {
-    log<T1>(severity, event,
-	    name1, argument1);
+    llog<Severity, T1>(event,
+		      name1, argument1);
     std::cout << " - " << name2 << ": " << llog::to_string(argument2) << std::endl;
   }
-}
-
-template<int S, typename T1, typename T2>
-static void log(const char* event,
-		const char* name1, const Argument<T1>& argument1,
-		const char* name2, const Argument<T2>& argument2)
-{
-  log(S, event,
-      name1, argument1,
-      name2, argument2);
 }
 
 }
