@@ -31,8 +31,6 @@ public:
   {
     return &unlatched_value_;
   }
-
-
 };
 
 template<typename T>
