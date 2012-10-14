@@ -71,7 +71,7 @@ public:
     case Debug:
       return "DEBUG";
     case Trace:
-      return "TRACE ";
+      return "TRACE";
     default:
       return "?????";
     }

@@ -6,7 +6,7 @@ catkin_stack()
 
 catkin_project(beam
   INCLUDE_DIRS include
-  LIBRARIES beam beam-printf
+  LIBRARIES beam-printf
 )
 
 include_directories(include)
