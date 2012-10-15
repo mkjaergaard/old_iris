@@ -1,0 +1,8 @@
+<package>
+  <name>beam</name>
+  <version>0.0.1</version>
+  <description>Light and fast logging frontend</description>
+  <author>Morten Kjaergaard</author>
+  <maintainer email="none@none.com">Morten Kjaergaard</maintainer>
+  <license>BSD</license>
+</package>
