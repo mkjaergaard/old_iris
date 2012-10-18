@@ -3,6 +3,7 @@
 namespace beam
 {
 
+inline
 void assert_failed(const char* func, const char* file, int line)
 {
   beam::glog<beam::Fatal>("Assertion Failed",
@@ -24,6 +25,7 @@ void assert_failed(const char* func, const char* file, int line,
   abort();
 }
 
+inline
 void test_assert(bool condition,
 		 const char* func,
 		 const char* file,
