@@ -34,7 +34,7 @@
  */
 
 #include <beam/logger.hpp>
-#include <stdio.h>
+#include <sstream>
 #include <boost/date_time/posix_time/time_formatters.hpp>
 
 namespace bt = boost::posix_time;
@@ -45,41 +45,82 @@ namespace beam
 logger logger::instance_;
 
 void logger::log1(int severity,
+		  const char * scope_name,
 		  const char * event,
 		  const char * name1, const std::string& arg1,
 		  const char * name2, const std::string& arg2,
 		  const char * name3, const std::string& arg3,
 		  const char * name4, const std::string& arg4)
 {
-  // Do this better
-  printf("[%s %s] %s\n",
-	 Severity::name(severity),
-	 bt::to_simple_string(bt::microsec_clock::universal_time().time_of_day()).c_str(),
-	 event);
+  const char * prefix = "                      - ";
+  std::stringstream istr;
 
-  //                        [FATAL 14:20:20.878682]
-  const char * my_format = "                      - %s: %s\n";
+  istr << "["
+       << Severity::name(severity)
+       << " "
+       << bt::to_simple_string(bt::microsec_clock::universal_time().time_of_day())
+       << "] ";
 
-  if(name1[0] != 0)
+  if(scope_name != 0)
   {
-    printf(my_format, name1, arg1.c_str());
+    istr << "("
+	 << scope_name
+	 << ") ";
+  }
+
+  if(event != 0)
+  {
+    istr << event
+	 << std::endl;
+
+    if(name1[0] != 0)
+    {
+      istr << prefix
+	   << name1
+	   << " : "
+	   << arg1
+	   << std::endl;
+    }
+  }
+  else
+  {
+    if(name1[0] != 0)
+    {
+      istr << name1
+	   << " : "
+	   << arg1
+	   << std::endl;
+    }
   }
 
   if(name2[0] != 0)
   {
-    printf(my_format, name2, arg2.c_str());
+    istr << prefix
+	 << name2
+	 << " : "
+	 << arg2
+	 << std::endl;
   }
 
   if(name3[0] != 0)
   {
-    printf(my_format, name3, arg3.c_str());
+    istr << prefix
+	 << name3
+	 << " : "
+	 << arg3
+	 << std::endl;
   }
 
   if(name4[0] != 0)
   {
-    printf(my_format, name4, arg4.c_str());
+    istr << prefix
+	 << name4
+	 << " : "
+	 << arg4
+	 << std::endl;
   }
 
+  std::cout << istr.str();
 }
 
 }

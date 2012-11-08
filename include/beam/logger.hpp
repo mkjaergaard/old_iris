@@ -35,7 +35,6 @@
 
 #pragma once
 
-#include <vector>
 #include <boost/shared_ptr.hpp>
 #include <boost/make_shared.hpp>
 
@@ -49,11 +48,12 @@ class logger
 {
 protected:
   SeverityType severity_;
+  std::string empty_;
 
   static logger instance_;
 
   logger() :
-    severity_(beam::All)
+    severity_(beam::Info)
   {
   }
 
@@ -74,11 +74,12 @@ public:
   }
 
   static void log1(int severity,
+		   const char * scope,
 		   const char * event,
-		   const char * name1 = "", const std::string& arg1 = std::string(),
-		   const char * name2 = "", const std::string& arg2 = std::string(),
-		   const char * name3 = "", const std::string& arg3 = std::string(),
-		   const char * name4 = "", const std::string& arg4 = std::string());
+		   const char * name1 = "", const std::string& arg1 = logger::instance_.empty_,
+		   const char * name2 = "", const std::string& arg2 = logger::instance_.empty_,
+		   const char * name3 = "", const std::string& arg3 = logger::instance_.empty_,
+		   const char * name4 = "", const std::string& arg4 = logger::instance_.empty_);
 
 };
 

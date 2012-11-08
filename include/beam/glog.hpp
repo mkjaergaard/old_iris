@@ -47,7 +47,7 @@ static void glog(const char* event)
 {
   if(logger::is_severity_logged(Severity))
   {
-    logger::log1(Severity, event);
+    logger::log1(Severity, "", event);
   }
 }
 
@@ -57,7 +57,7 @@ static void glog(const char* event,
 {
   if(logger::is_severity_logged(Severity))
   {
-    logger::log1(Severity, event,
+    logger::log1(Severity, "", event,
 		 name1, beam::to_string(argument1));
   }
 }
@@ -69,7 +69,7 @@ static void glog(const char* event,
 {
   if(logger::is_severity_logged(Severity))
   {
-    logger::log1(Severity, event,
+    logger::log1(Severity, "", event,
 		 name1, beam::to_string(argument1),
 		 name2, beam::to_string(argument2));
   }
@@ -83,7 +83,7 @@ static void glog(const char* event,
 {
   if(logger::is_severity_logged(Severity))
   {
-    logger::log1(Severity, event,
+    logger::log1(Severity, "", event,
 		 name1, beam::to_string(argument1),
 		 name2, beam::to_string(argument2),
 		 name3, beam::to_string(argument3));
@@ -99,7 +99,7 @@ static void glog(const char* event,
 {
   if(logger::is_severity_logged(Severity))
   {
-    logger::log1(Severity, event,
+    logger::log1(Severity, "", event,
 		 name1, beam::to_string(argument1),
 		 name2, beam::to_string(argument2),
 		 name3, beam::to_string(argument3),
