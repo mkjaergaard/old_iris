@@ -7,29 +7,29 @@ inline
 void assert_failed(const char* func, const char* file, int line)
 {
   beam::glog<beam::Fatal>("Assertion Failed",
-			  "function", arg<const char*>(func),
-			  "file", arg<const char*>(file),
-			  "line", arg<int>(line));
+                          "function", arg<const char*>(func),
+                          "file", arg<const char*>(file),
+                          "line", arg<int>(line));
   abort();
 }
 
 template<typename T1>
 void assert_failed(const char* func, const char* file, int line,
-		   const char* name1, const arg<T1>& argument1)
+                   const char* name1, const arg<T1>& argument1)
 {
   beam::glog<beam::Fatal>("Assertion Failed",
-			  "function", arg<const char*>(func),
-			  "file", arg<const char*>(file),
-			  "line", arg<int>(line),
-			  name1, argument1);
+                          "function", arg<const char*>(func),
+                          "file", arg<const char*>(file),
+                          "line", arg<int>(line),
+                          name1, argument1);
   abort();
 }
 
 inline
 void test_assert(bool condition,
-		 const char* func,
-		 const char* file,
-		 int line)
+                 const char* func,
+                 const char* file,
+                 int line)
 {
   ((condition)
    ? __ASSERT_VOID_CAST(0)
@@ -38,10 +38,10 @@ void test_assert(bool condition,
 
 template<typename T1>
 void test_assert(bool condition,
-		 const char* func,
-		 const char* file,
-		 int line,
-		 const char* name1, const arg<T1>& argument1)
+                 const char* func,
+                 const char* file,
+                 int line,
+                 const char* name1, const arg<T1>& argument1)
 {
   ((condition)
    ? __ASSERT_VOID_CAST(0)
@@ -50,9 +50,9 @@ void test_assert(bool condition,
 
 }
 
-#define BEAM_ASSERT(c)\
+#define BEAM_ASSERT(c)                                                  \
   beam::test_assert((c), BOOST_CURRENT_FUNCTION, __FILE__, __LINE__)
 
-#define BEAM_ASSERT_1(x, a1, v1)\
+#define BEAM_ASSERT_1(x, a1, v1)                                        \
   beam::test_assert((x), BOOST_CURRENT_FUNCTION, __FILE__, __LINE__, a1, v1)
 

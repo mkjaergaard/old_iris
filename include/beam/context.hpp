@@ -61,8 +61,8 @@ public:
   {
     severity_ = severity;
     for(ChildListType::iterator it = childs_.begin();
-	it != childs_.end();
-	it++)
+        it != childs_.end();
+        it++)
     {
       (*it)->setLoggingSeverityRecursive(severity);
     }
@@ -80,13 +80,13 @@ public:
 
   template<typename T>
   void log(const SeverityType severity,
-	   const char* name1, const Argument<T>& argument1)
+           const char* name1, const Argument<T>& argument1)
   {
     if(isSeverityLogged(severity))
     {
       // todo: dispatch to a backend instead
       std::cout << full_name_ << ":" << std::endl
-		<< "  " << name1 << llog::to_string(argument1) << std::endl;
+                << "  " << name1 << llog::to_string(argument1) << std::endl;
     }
   }
 

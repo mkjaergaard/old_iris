@@ -74,12 +74,12 @@ public:
   }
 
   static void log1(int severity,
-		   const char * scope,
-		   const char * event,
-		   const char * name1 = "", const std::string& arg1 = logger::instance_.empty_,
-		   const char * name2 = "", const std::string& arg2 = logger::instance_.empty_,
-		   const char * name3 = "", const std::string& arg3 = logger::instance_.empty_,
-		   const char * name4 = "", const std::string& arg4 = logger::instance_.empty_);
+                   const char * scope,
+                   const char * event,
+                   const char * name1 = "", const std::string& arg1 = logger::instance_.empty_,
+                   const char * name2 = "", const std::string& arg2 = logger::instance_.empty_,
+                   const char * name3 = "", const std::string& arg3 = logger::instance_.empty_,
+                   const char * name4 = "", const std::string& arg4 = logger::instance_.empty_);
 
 };
 

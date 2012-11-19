@@ -51,22 +51,22 @@ struct static_scope_impl
 
   template<typename T1>
   static void slog(const char* event,
-		   const char* name1, const arg<T1>& argument1)
+                   const char* name1, const arg<T1>& argument1)
   {
   }
 
   template<typename T1, typename T2>
   static void slog(const char* event,
-		   const char* name1, const arg<T1>& argument1,
-		   const char* name2, const arg<T2>& argument2)
+                   const char* name1, const arg<T1>& argument1,
+                   const char* name2, const arg<T2>& argument2)
   {
   }
 
   template<typename T1, typename T2, typename T3>
   static void slog(const char* event,
-		   const char* name1, const arg<T1>& argument1,
-		   const char* name2, const arg<T2>& argument2,
-		   const char* name3, const arg<T3>& argument3)
+                   const char* name1, const arg<T1>& argument1,
+                   const char* name2, const arg<T2>& argument2,
+                   const char* name3, const arg<T3>& argument3)
   {
   }
 
@@ -82,32 +82,32 @@ struct static_scope_impl<true, S>
 
   template<typename T1>
   static void slog(const char* event,
-		   const char* name1, const arg<T1>& argument1)
+                   const char* name1, const arg<T1>& argument1)
   {
     beam::glog<S>(event,
-		  name1, argument1);
+                  name1, argument1);
   }
 
   template<typename T1, typename T2>
   static void slog(const char* event,
-		   const char* name1, const arg<T1>& argument1,
-		   const char* name2, const arg<T2>& argument2)
+                   const char* name1, const arg<T1>& argument1,
+                   const char* name2, const arg<T2>& argument2)
   {
     beam::glog<S>(event,
-		  name1, argument1,
-		  name2, argument2);
+                  name1, argument1,
+                  name2, argument2);
   }
 
   template<typename T1, typename T2, typename T3>
   static void slog(const char* event,
-		   const char* name1, const arg<T1>& argument1,
-		   const char* name2, const arg<T2>& argument2,
-		   const char* name3, const arg<T3>& argument3)
+                   const char* name1, const arg<T1>& argument1,
+                   const char* name2, const arg<T2>& argument2,
+                   const char* name3, const arg<T3>& argument3)
   {
     beam::glog<S>(event,
-		  name1, argument1,
-		  name2, argument2,
-		  name3, argument3);
+                  name1, argument1,
+                  name2, argument2,
+                  name3, argument3);
   }
 };
 

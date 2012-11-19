@@ -47,12 +47,12 @@ extern const char default_name[] = "";
 logger logger::instance_;
 
 void logger::log1(int severity,
-		  const char * scope_name,
-		  const char * event,
-		  const char * name1, const std::string& arg1,
-		  const char * name2, const std::string& arg2,
-		  const char * name3, const std::string& arg3,
-		  const char * name4, const std::string& arg4)
+                  const char * scope_name,
+                  const char * event,
+                  const char * name1, const std::string& arg1,
+                  const char * name2, const std::string& arg2,
+                  const char * name3, const std::string& arg3,
+                  const char * name4, const std::string& arg4)
 {
   const char * prefix = "                      - ";
   std::stringstream istr;
@@ -66,22 +66,22 @@ void logger::log1(int severity,
   if(scope_name != 0)
   {
     istr << "("
-	 << scope_name
-	 << ") ";
+         << scope_name
+         << ") ";
   }
 
   if(event != 0)
   {
     istr << event
-	 << std::endl;
+         << std::endl;
 
     if(name1[0] != 0)
     {
       istr << prefix
-	   << name1
-	   << " : "
-	   << arg1
-	   << std::endl;
+           << name1
+           << " : "
+           << arg1
+           << std::endl;
     }
   }
   else
@@ -89,37 +89,37 @@ void logger::log1(int severity,
     if(name1[0] != 0)
     {
       istr << name1
-	   << " : "
-	   << arg1
-	   << std::endl;
+           << " : "
+           << arg1
+           << std::endl;
     }
   }
 
   if(name2[0] != 0)
   {
     istr << prefix
-	 << name2
-	 << " : "
-	 << arg2
-	 << std::endl;
+         << name2
+         << " : "
+         << arg2
+         << std::endl;
   }
 
   if(name3[0] != 0)
   {
     istr << prefix
-	 << name3
-	 << " : "
-	 << arg3
-	 << std::endl;
+         << name3
+         << " : "
+         << arg3
+         << std::endl;
   }
 
   if(name4[0] != 0)
   {
     istr << prefix
-	 << name4
-	 << " : "
-	 << arg4
-	 << std::endl;
+         << name4
+         << " : "
+         << arg4
+         << std::endl;
   }
 
   std::cout << istr.str();

@@ -54,35 +54,35 @@ struct static_scope
 
   template<int Severity, typename T1>
   void slog(const char* event,
-	    const char* name1, const arg<T1>& argument1)
+            const char* name1, const arg<T1>& argument1)
   {
     static_scope_impl<Severity <= SeverityEnabled, Severity>::
       slog(event,
-	   name1, argument1);
+           name1, argument1);
   }
 
   template<int Severity, typename T1, typename T2>
   void slog(const char* event,
-	    const char* name1, const arg<T1>& argument1,
-	    const char* name2, const arg<T2>& argument2)
+            const char* name1, const arg<T1>& argument1,
+            const char* name2, const arg<T2>& argument2)
   {
     static_scope_impl<Severity <= SeverityEnabled, Severity>::
       slog(event,
-	   name1, argument1,
-	   name2, argument2);
+           name1, argument1,
+           name2, argument2);
   }
 
   template<int Severity, typename T1, typename T2, typename T3>
   void slog(const char* event,
-	    const char* name1, const arg<T1>& argument1,
-	    const char* name2, const arg<T2>& argument2,
-	    const char* name3, const arg<T3>& argument3)
+            const char* name1, const arg<T1>& argument1,
+            const char* name2, const arg<T2>& argument2,
+            const char* name3, const arg<T3>& argument3)
   {
     static_scope_impl<Severity <= SeverityEnabled, Severity>::
       slog(event,
-	   name1, argument1,
-	   name2, argument2,
-	   name3, argument3);
+           name1, argument1,
+           name2, argument2,
+           name3, argument3);
   }
 
 };

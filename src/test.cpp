@@ -15,7 +15,7 @@ int main(int arc, char** argv)
 {
   beam::glog<beam::Warning>("Global Test");
   beam::glog<beam::Warning>("Global Test 2",
-			    "Arg1", beam::arg<int>(5));
+                            "Arg1", beam::arg<int>(5));
 
   Tester t;
   t.doit();
