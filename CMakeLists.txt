@@ -18,3 +18,8 @@ add_executable(beam_test
   src/test.cpp)
 
 target_link_libraries(beam_test beam-printf -lstdc++)
+
+add_executable(beam_example
+  test/example.cpp)
+
+target_link_libraries(beam_example beam-printf -lstdc++)

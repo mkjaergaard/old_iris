@@ -42,6 +42,8 @@ namespace bt = boost::posix_time;
 namespace beam
 {
 
+extern const char default_name[] = "";
+
 logger logger::instance_;
 
 void logger::log1(int severity,

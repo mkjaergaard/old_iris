@@ -40,7 +40,9 @@
 namespace beam
 {
 
-template<int SeverityEnabled>
+extern const char default_name[];
+
+template<int SeverityEnabled, const char * scope_name = default_name>
 struct static_scope
 {
   template<int Severity>
