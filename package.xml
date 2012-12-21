@@ -5,4 +5,5 @@
   <author>Morten Kjaergaard</author>
   <maintainer email="none@none.com">Morten Kjaergaard</maintainer>
   <license>BSD</license>
+  <buildtool_depend>catkin</buildtool_depend>
 </package>
