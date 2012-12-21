@@ -53,7 +53,7 @@ protected:
   static logger instance_;
 
   logger() :
-    severity_(beam::Info)
+    severity_(beam::All)
   {
   }
 

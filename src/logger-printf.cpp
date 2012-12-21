@@ -42,9 +42,9 @@ namespace bt = boost::posix_time;
 namespace beam
 {
 
-extern const char default_name[] = "";
-
 logger logger::instance_;
+
+extern const char default_name[] = "";
 
 void logger::log1(int severity,
                   const char * scope_name,
@@ -54,7 +54,6 @@ void logger::log1(int severity,
                   const char * name3, const std::string& arg3,
                   const char * name4, const std::string& arg4)
 {
-  const char * prefix = "                      - ";
   std::stringstream istr;
 
   istr << "["
@@ -63,7 +62,7 @@ void logger::log1(int severity,
        << bt::to_simple_string(bt::microsec_clock::universal_time().time_of_day())
        << "] ";
 
-  if(scope_name != 0)
+  if(scope_name[0] != 0)
   {
     istr << "("
          << scope_name
@@ -72,57 +71,46 @@ void logger::log1(int severity,
 
   if(event != 0)
   {
-    istr << event
-         << std::endl;
-
-    if(name1[0] != 0)
-    {
-      istr << prefix
-           << name1
-           << " : "
-           << arg1
-           << std::endl;
-    }
+    istr << event;
   }
-  else
+
+  if(name1[0] != 0)
   {
-    if(name1[0] != 0)
-    {
-      istr << name1
-           << " : "
-           << arg1
-           << std::endl;
-    }
+    istr << " ["
+         << name1
+         << ":"
+         << arg1
+         << "]";
   }
 
   if(name2[0] != 0)
   {
-    istr << prefix
+    istr << " ["
          << name2
-         << " : "
+         << ":"
          << arg2
-         << std::endl;
+         << "]";
   }
 
   if(name3[0] != 0)
   {
-    istr << prefix
+    istr << " ["
          << name3
-         << " : "
+         << ":"
          << arg3
-         << std::endl;
+         << "]";
   }
 
   if(name4[0] != 0)
   {
-    istr << prefix
+    istr << " ["
          << name4
-         << " : "
+         << ":"
          << arg4
-         << std::endl;
+         << "]";
   }
 
-  std::cout << istr.str();
+  std::cout << istr.str() << std::endl;
 }
 
 }
