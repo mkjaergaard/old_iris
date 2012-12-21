@@ -23,3 +23,7 @@ add_executable(beam_example
   test/example.cpp)
 
 target_link_libraries(beam_example beam-printf -lstdc++)
+
+install(DIRECTORY include/
+  DESTINATION ${CATKIN_GLOBAL_INCLUDE_DESTINATION}
+  FILES_MATCHING PATTERN "*.hpp")
